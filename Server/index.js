@@ -7,8 +7,10 @@ const likeRoute = require("./Routes/likeMethods");
 const rankRoute = require("./Routes/rankMethods");
 const uri = config.getSecretToken();
 
-const app = express();
-const Port = process.env.PORT || 3600;
+const server = app.listen(process.env.PORT || 5000, () => {
+  const port = server.address().port;
+  console.log(`Express is working on port ${port}`);
+});
 
 app.use(cors());
 app.use(bodyParser.json());
